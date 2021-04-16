@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cursos</title>
+</head>
+<body>
+
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>descripcion</th>
+				<th>precio</th>
+				<th>horas</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="curso : ${cursos}">
+
+				<th><span th:text=${curso.nombre}> Nombre</span></th>
+				<th><span th:text=${curso.descripcion}>  descripcion</span></th>
+				<th><span th:text=${curso.precio}> precio</span></th>
+				<th><span th:text=${curso.horas}> horas</span></th>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+
+<form action="#" th:action="@{/cursos/addcurso}" th:object="${curso}" method="post">
+<p > Nombre: <input type="text" th:field="*{nombre}">  </p>
+<p > Descripcion: <input type="text" th:field="*{descripcion}">  </p>
+<p > precio: <input type="number" th:field="*{precio}">  </p>
+<p > Horas: <input type="number" th:field="*{horas}">  </p>
+
+<p >  <input type="submit" value="enviar">  </p>
+
+</form>
+
+</body>
+</html>
